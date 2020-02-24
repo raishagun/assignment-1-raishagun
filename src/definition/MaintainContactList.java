@@ -1,6 +1,7 @@
 package definition;
 
-public class MaintainQueue {
+public class MaintainContactList {
     private ContactList contacts;
+
 
 }
