@@ -33,5 +33,14 @@ public class Person {
         this.email = email;
     }
 
+    public ArrayList<Long> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(ArrayList<Long> contacts) {
+        this.contacts = contacts;
+    }
+
+
 
 }
