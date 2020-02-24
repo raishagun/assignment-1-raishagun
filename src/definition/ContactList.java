@@ -4,6 +4,7 @@ import adt.ContactListADT;
 
 public class ContactList implements ContactListADT<Person> {
 
+
     @Override
     public void add(Person data) {
 
