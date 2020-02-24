@@ -20,7 +20,12 @@ public class Main {
                     "Press 5 to exit program");
 
             int choice = ob.nextInt();
-
+            ob.nextLine();
+            switch(choice) {
+                case 1:
+                    conts.add(sc.addContact());
+                    break;
+            }
         }
     }
 }
