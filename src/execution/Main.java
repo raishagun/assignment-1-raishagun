@@ -28,9 +28,15 @@ public class Main {
                 case 2:
                     conts.view();
                     break;
+
                 case 3:
                     conts.search(ob.nextLine());
                     break;
+                case 4:
+                    conts.printList();
+                    System.out.println("Press the number against the contact to delete it!");
+                    int c=ob.nextInt();
+                  conts.remove(c);
             }
         }
     }
