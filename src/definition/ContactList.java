@@ -2,16 +2,17 @@ package definition;
 
 import adt.ContactListADT;
 
+import java.util.Scanner;
+
 public class ContactList implements ContactListADT<Person> {
+    Scanner ob=new Scanner(System.in);
 
     private Node head = null;
     private int size = 0;
 
     @Override
     public void add(Person data) {
-
             Node node=new Node( data);
-
             if(head==null){
                 head=node;
             }
@@ -53,7 +54,28 @@ public class ContactList implements ContactListADT<Person> {
     @Override
     public void view() {
 
+
+        System.out.println("---Here are all your contacts---\n" + "-------- * -------- * -------- * --------");
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.getData());
+            temp = temp.getNext();
+            System.out.println("-------- * -------- * -------- * --------" + "\n" + "-------- * -------- * -------- * --------");
+        }
+        System.out.println();
     }
+    public int printList() {
+        System.out.println("Here are all your contacts: ");
+        Node temp=head;
+        int i=1;
+        while(temp!=null) {
+            System.out.println(i++ + ". " + temp.getData().getFirstName() + " " + temp.getData().getLastName());
+            temp = temp.getNext();
+        }
+        System.out.println("enter to delete");
+        return ob.nextInt();
+    }
+
 
     private static   class Node {
         private Person data;

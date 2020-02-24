@@ -25,6 +25,7 @@ public class Main {
                 case 1:
                     conts.add(sc.addContact());
                     break;
+
                 case 3:
                     conts.search(ob.nextLine());
                     break;
