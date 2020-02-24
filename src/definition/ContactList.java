@@ -10,10 +10,9 @@ public class ContactList implements ContactListADT<Person> {
     @Override
     public void add(Person data) {
 
-
-
-
-
+        Node node = new Node(data,head);
+        head = node;
+        size++;
 
     }
 
