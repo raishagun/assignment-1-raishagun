@@ -7,8 +7,6 @@ public class MaintainContactList {
     private ContactList contacts;
 
     Scanner ob = new Scanner(System.in);
-
-
     public Person addContact() {
         Person pers = new Person();
         System.out.println("You have chosen to add a new contact:");
@@ -21,7 +19,6 @@ public class MaintainContactList {
         String l = ob.nextLine();
         pers.setLastName(l);
         System.out.println("Enter contact");
-
 
         ArrayList<Long> number = new ArrayList<>();
         while (true) {
