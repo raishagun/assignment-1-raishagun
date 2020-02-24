@@ -5,31 +5,53 @@ import adt.ContactListADT;
 import java.util.Scanner;
 
 public class ContactList implements ContactListADT<Person> {
-    Scanner ob=new Scanner(System.in);
+    Scanner ob = new Scanner(System.in);
 
     private Node head = null;
     private int size = 0;
 
     @Override
     public void add(Person data) {
-            Node node=new Node( data);
-            if(head==null){
-                head=node;
+        Node node = new Node(data);
+        if (head == null) {
+            head = node;
+        } else {
+            Node temp = head;
+            while (temp.getNext() != null) {
+                temp = temp.getNext();
             }
-            else {
-                Node temp=head;
-                while(temp.getNext()!=null){
-                    temp=temp.getNext();
-                }
-                temp.setNext( node );
-            }
-            System.out.println("contact added successfully");
-
+            temp.setNext(node);
+        }
+        System.out.println("contact added successfully");
 
 
     }
 
+    public void sortList() {
+        //Node current will point to head
+        Node current = head, index = null;
+        Person temp;
 
+        if (head == null) {
+            return;
+        } else {
+            while (current != null) {
+                //Node index will point to node next to current
+                index = current.getNext();
+
+                while (index != null) {
+                    //If current node's data is greater than index's node data, swap the data between them
+                    if (current.getData().getFirstName().compareTo(index.getData().getFirstName()) > 0) {
+                        temp = current.getData();
+                        current.setData(index.getData());
+                        index.setData(temp);
+                    }
+                    index = index.getNext();
+                }
+                current = current.getNext();
+            }
+        }
+    }
 
     @Override
     public void remove(int item) {
@@ -91,11 +113,12 @@ public class ContactList implements ContactListADT<Person> {
         }
         System.out.println();
     }
+
     public void printList() {
         System.out.println("Here are all your contacts: ");
-        Node temp=head;
-        int i=1;
-        while(temp!=null) {
+        Node temp = head;
+        int i = 1;
+        while (temp != null) {
             System.out.println(i++ + ". " + temp.getData().getFirstName() + " " + temp.getData().getLastName());
             temp = temp.getNext();
 
@@ -103,10 +126,11 @@ public class ContactList implements ContactListADT<Person> {
     }
 
 
-    private static   class Node {
+    private static class Node {
         private Person data;
         private Node next;
-        public Node(Person data){
+
+        public Node(Person data) {
             this.data = data;
             next = null;
         }
@@ -128,3 +152,5 @@ public class ContactList implements ContactListADT<Person> {
         }
     }
 }
+
+
