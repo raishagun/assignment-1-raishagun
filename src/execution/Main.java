@@ -37,6 +37,10 @@ public class Main {
                     System.out.println("Press the number against the contact to delete it!");
                     int c=ob.nextInt();
                   conts.remove(c);
+                  break;
+                case 5:
+                    System.exit(0);
+                  break;
             }
         }
     }

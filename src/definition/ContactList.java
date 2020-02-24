@@ -103,7 +103,7 @@ public class ContactList implements ContactListADT<Person> {
     @Override
     public void view() {
 
-
+sortList();
         System.out.println("---Here are all your contacts---\n" + "-------- * -------- * -------- * --------");
         Node temp = head;
         while (temp != null) {
@@ -115,6 +115,7 @@ public class ContactList implements ContactListADT<Person> {
     }
 
     public void printList() {
+        sortList();
         System.out.println("Here are all your contacts: ");
         Node temp = head;
         int i = 1;
